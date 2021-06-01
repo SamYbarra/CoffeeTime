@@ -27,6 +27,17 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
+        $sales = new Sale();
+        $sales->date = $request->date;
+        $sales->TotalAmount = $request->TotalAmount;
+        $sales->CodeQR = $request->CodeQR;
+        $sales->id_car_of_buys = $request->id_car_of_buys;
+        $sales->save();
+
+        return response()->json($sales, 201);
+    }
+  public function store(Request $request)
+    {
         //
     }
 

@@ -17,7 +17,7 @@ class CategoryController extends Controller
         //
     $categories = Category::all();
     return response()->json($categories);
-    
+
     }
 
     /**
@@ -28,7 +28,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $categories = new Category();
+        $categories->name = $request->name;
+        $categories->description = $request->description;
+        $categories->save();
+
+        return response()->json($categories, 201);
     }
 
     /**

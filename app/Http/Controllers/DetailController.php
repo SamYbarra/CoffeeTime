@@ -27,7 +27,15 @@ class DetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $detailcars = new DetailCar();
+        $detailcars->subtotal = $request->subtotal;
+        $detailcars->date = $request->date;
+        $detailcars->Cant = $request->Cant;
+        $detailcars->id_car_of_buys = $request->id_car_of_buys;
+        $detailcars->id_product = $request->id_product;
+        $detailcars->save();
+
+        return response()->json($detailcars, 201);
     }
 
     /**
